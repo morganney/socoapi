@@ -20,3 +20,6 @@ node_modules
 /.idea_modules
 /.settings
 /.project
+
+
+testing.js
