@@ -7,7 +7,8 @@
     "morgan": "1.0.0",
     "errorhandler": "1.0.0",
     "compression": "1.0.1",
-    "es6-promise": "0.1.1"
+    "es6-promise": "0.1.1",
+    "memory-cache": "0.0.5"
   },
   "main": "index",
   "private": true
