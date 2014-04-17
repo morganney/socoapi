@@ -11,5 +11,29 @@
     "memory-cache": "0.0.5"
   },
   "main": "index",
-  "private": true
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morganney/socoapi.git"
+  },
+  "keywords": [
+    "social",
+    "media",
+    "widget",
+    "counts",
+    "buttons",
+    "api",
+    "json",
+    "proxy"
+  ],
+  "bugs": {
+    "url": "https://github.com/morganney/socoapi/issues"
+  },
+  "author": {
+    "name": "Morgan Ney <morganney@gmail.com>",
+    "url": "http://bizzybytes.com"
+  },
+  "license": "MIT"
 }
