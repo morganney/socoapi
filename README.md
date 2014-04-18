@@ -47,11 +47,13 @@ app.listen('3000', function() {
 
 ### API
 
+*Be sure to URI encode (percent encoding) any query component to a URL*.
+
 **GET /counts?```url```=[the url to get share counts for]**
 
 Returns share counts for ```url``` from all supported vendors.
 
-For example, ```GET /counts?url=http://www.foobar.baz/```
+For example, ```GET /counts?url=http://www.foobar.baz/%3Fq1%3Dv1%26q2%3Dv2```
 
 ```javascript
 {
@@ -59,7 +61,7 @@ For example, ```GET /counts?url=http://www.foobar.baz/```
   "twitter"  : 4321,
   "google"   : 5317,
   "pinterest": 1,
-  "url"      : "http//www.foobar.baz/"
+  "url"      : "http//www.foobar.baz/?q1=v1&q2=v2"
 }
 ```
 
