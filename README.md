@@ -8,14 +8,18 @@ socoapi is a JSON API for obtaining share counts of your website on social media
 Twitter, Google+ and Pinterest.  Install socoapi on your server so your website can use custom styles for share
 buttons hosted on your pages.
 
-## Installation
+### Installation
 ```javascript
 npm install socoapi
 ```
 ### Usage
-```socoapi``` provides one method: ```listen(port, cachettl [, callback])```. All parameters are required except for ```callback```. Passing a value of ```false``` for ```cachettl``` will force socoapi to not use caching and each request will get the counts from the vendor's server.
+Start the ```socoapi``` server before you use the API.
 
-I would probably enable caching by passing in a milliseconds value for ```cachettl``` to not overburden the vendor's servers with your super popular website.
+```socoapi``` provides one method: ```listen(port, cachettl [, callback])```.
+
+All parameters are required except for ```callback```. Passing a value of ```false``` for ```cachettl``` will force socoapi to not use caching and each request will get the counts from the vendor's server. Cached values are removed after ```cachettl``` milleseconds and refreshed on the next request.
+
+Supplying a ```cachettl``` is recommended to not overburden any vendor server needlessly.
 
 ```javascript
 // Standalone
@@ -25,16 +29,14 @@ socoapi.listen('3535', 3600000, function(port, ttl) {
   console.log('socoapi now listening on port ' + port + ' with cache ttl of ' + ttl + ' ms');
 });
 
-socoapi.listen('3535', false, function(port, ttl) {
-  // Passing false will disable caching which is enabled by default.
-});
-
 // Embedded
 var app     = require('express')()
   , socoapi = require('socoapi')
 ;
 
+// If using a reverse proxy
 app.enable('trust proxy');
+
 app.listen('3000', function() {
   socoapi.listen('3535', 3600000, function() {
     console.log('socoapi api now listening ...');
@@ -42,3 +44,35 @@ app.listen('3000', function() {
 });
 
 ```
+
+### API
+
+**GET /counts?```url```=[the url to get share counts for]**
+
+Returns share counts for ```url``` from all supported vendors.
+
+```javascript
+{
+  "facebook" : 1234,
+  "twitter"  : 4321,
+  "google"   : 5317,
+  "pinterest": 1,
+}
+```
+
+**GET /counts/```:vendor```?```url```=[the url to get share counts for]**
+
+Returns share counts for ```url``` from supplied ```:vendor```.
+
+For example, ```GET /counts/facebook?url=http://www.foobar.baz/```
+
+```javascript
+{
+  "facebook" : 123
+  "url" : "http://www.foobar.baz/"
+}
+```
+
+### License
+
+MIT
