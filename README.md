@@ -51,12 +51,15 @@ app.listen('3000', function() {
 
 Returns share counts for ```url``` from all supported vendors.
 
+For example, ```GET /counts?url=http://www.foobar.baz/```
+
 ```javascript
 {
   "facebook" : 1234,
   "twitter"  : 4321,
   "google"   : 5317,
   "pinterest": 1,
+  "url"      : "http//www.foobar.baz/"
 }
 ```
 
@@ -68,8 +71,8 @@ For example, ```GET /counts/facebook?url=http://www.foobar.baz/```
 
 ```javascript
 {
-  "facebook" : 123
-  "url" : "http://www.foobar.baz/"
+  "count" : 123
+  "vendor" : "facebook"
 }
 ```
 
