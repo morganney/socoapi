@@ -1,11 +1,11 @@
 socoapi
 =======
 
-Want to create a custom look for social media buttons from Facebook, Twitter and Google?  Are you tired of the vendor
+Want to create a custom look for social media buttons from Facebook, Pinterest and Google?  Are you tired of the vendor
 supplied widget styles when you use their embed scripts?
 
 socoapi is a JSON API for obtaining share counts of your website on social media sites like Facebook,
-Twitter, Google+ and Pinterest.  Install socoapi on your server so your website can use custom styles for share
+Pinterest, and Google+.  Install socoapi on your server so your website can use custom styles for share
 buttons hosted on your pages.
 
 ### Installation
@@ -58,7 +58,6 @@ For example, ```GET /counts?url=http://www.foobar.baz/%3Fq1%3Dv1%26q2%3Dv2```
 ```javascript
 {
   "facebook" : 1234,
-  "twitter"  : 4321,
   "google"   : 5317,
   "pinterest": 1,
   "url"      : "http//www.foobar.baz/?q1=v1&q2=v2"

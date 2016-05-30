@@ -1,7 +1,7 @@
 {
   "name": "socoapi",
   "description": "JSON API for social media widget share counts.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "dependencies": {
     "express": "4.0.0",
     "morgan": "1.0.0",
